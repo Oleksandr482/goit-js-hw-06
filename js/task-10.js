@@ -17,18 +17,18 @@ createBtn.addEventListener('click', (event) => {
   createBoxes(amount);
   
 })
-
+let width = 20; 
 destroyBtn.addEventListener('click', () => destroyBoxes())
 
 function createBoxes(amount) {
   
   const arrOfColors = [];
 
-  let width = 20; 
+  
   for (let i = 0; i < amount; i += 1) {
    let hex = getRandomHexColor();
     width += 10;
-    arrOfColors.push({hex, width})
+    arrOfColors.push({ hex, width })
   }
 // console.log(arrOfColors);
   const markup = arrOfColors.map(({hex, width}) => {
@@ -40,10 +40,11 @@ function createBoxes(amount) {
     margin: 5px;">
     </div>`
   }).join('');
-  boxesEl.insertAdjacentHTML('afterbegin', markup);
+  boxesEl.insertAdjacentHTML('beforeend', markup);
   // console.log(markup);
 }
 
 function destroyBoxes() {
   boxesEl.innerHTML = '';
+  width = 20;
 }

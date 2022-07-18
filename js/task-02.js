@@ -7,13 +7,12 @@ const ingredients = [
   'Condiments',
 ];
 
-const ingredientItems = [];
-for (let ingredient of ingredients) {
+const ingredientItems = ingredients.map(ingredient => {
   const ingredientEl = document.createElement('li');
   ingredientEl.classList.add('item');
   ingredientEl.textContent = ingredient;
-  ingredientItems.push(ingredientEl);
-}
+  return ingredientEl;
+})
 
 const ingredientsEl = document.querySelector('#ingredients');
 ingredientsEl.append(...ingredientItems);
